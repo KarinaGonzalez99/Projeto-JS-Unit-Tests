@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /*
   A função average recebe um array de tamanho variável e retorna a média dos valores recebidos.
   Caso a função receba algum valor não numérico ou um array vazio, o valor undefined deve ser retornado.
@@ -12,20 +13,19 @@
 */ 
 
 const average = (arr) => {
-  let arrTotal = arr.length;
-  let media = 0;
-  
-  for (let index = 0; index < arrTotal; index += 1) {
-    if (typeof (arrTotal[index]) !== 'number') {
-    return 'oi';
-  } 
-  } 
-  if (arrTotal === 0) {
+  let tamanho = arr.length;
+  let somatotal = 0;
+  if (arr.length === 0) {
     return undefined;
-}
-
+  }
+  for (let index = 0; index < arr.length; index += 1) {
+    let num = arr[index];
+    if (typeof num !== 'number') {
+      return undefined;
+    }
+    somatotal += num;
+  }
+  const media = somatotal / tamanho;
+  return Math.round(media);
 };
-
-console.log(average(1));
-
 module.exports = average;
