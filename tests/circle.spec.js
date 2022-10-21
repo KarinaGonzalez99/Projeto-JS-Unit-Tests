@@ -22,15 +22,25 @@ const circle = require('../src/circle');
 */
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
-  it('Verifica se ao receber um raio, a função `circle` retorna um objeto contendo os valores esperados', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste se circle retorna undefined, caso o parâmetro passado não seja um número.
-    // Teste se circle retorna um objeto.
-    // Teste se o objeto retornado possui 3 propriedades.
-    // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
-    // Teste se dentro do objeto retornado, a função retorna uma `key` com `value` igual à circunferência correta para um círculo de raio 2.
-    // Teste se dentro do objeto retornado, a função retorna uma `key` com `value` igual à área correta para um círculo de raio 3.
-    // Teste se a função retorna, em um objeto, os dados corretos de um círculo de raio 3.
+  it('Verifica 1', () => { // dentro do circle colocar uma string aleatoria, porque qualquer valor que tiver dentro será string
+    expect(circle(' ')).toBe(undefined); // Teste se circle retorna undefined, caso o parâmetro passado não seja um número.
   });
-});
+  it('Verifica 2', () => { // colocar qual o tipo typeof, coloca rum valor dentro (22), no caso aleatorio, mas no valor em numeros pra manter qualquer valor que colocar em numero, e o object, que seria o que eu queria testar
+    expect(typeof circle(22)).toBe('object'); // Teste se circle retorna um objeto.
+  });
+  it('Verifica 3', () => { // checar se tem 3 keys (radius, area, circunferencia) = object.key; com um valor aleatorio dentro do circle (22), e conferindo o seu tamanhocom length
+    expect(Object.keys(circle(22)).length).toBe(3); // Teste se o objeto retornado possui 3 propriedades.
+  });
+  it('Verifica 4', () => { 
+    expect(circle()).toBe(undefined); // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+  });
+  it('Verifica 5', () => { // circle com raio 2, dando match no object com key circumference, com valor de 12.56
+    expect(circle(2)).toMatchObject({circumference: (12.56)}); // Teste se dentro do objeto retornado, a função retorna uma `key` com `value` igual à circunferência correta para um círculo de raio 2.
+  });
+  it('Verifica 6', () => { 
+    expect(circle(3)).toMatchObject({area: (28.259999999999998)}); // Teste se dentro do objeto retornado, a função retorna uma `key` com `value` igual à área correta para um círculo de raio 3.
+  });
+  it('Verifica 7', () => { 
+    expect(circle(3)).toMatchObject({radius: 3, area: 28.259999999999998, circumference: 18.84}); // Teste se a função retorna, em um objeto, os dados corretos de um círculo de raio 3.
+  });
+  });
