@@ -30,14 +30,23 @@ const productDetails = require('../src/productDetails');
 */
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
-  it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste se productDetails é uma função.
-    // Teste se o retorno da função é um array.
-    // Teste se o array retornado pela função contém dois itens dentro.
-    // Teste se os dois itens dentro do array retornado pela função são objetos.
-    // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
-    // Teste se os dois productIds terminam com 123.
+  it('Verifica 1', () => { 
+    expect(typeof productDetails).toBe('function'); // Teste se productDetails é uma função.
+  });
+  it('Verifica 2', () => { // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
+    expect(Array.isArray(productDetails('Alcool gel', 'Máscara'))).toBe(true); // Teste se o retorno da função é um array.
+  });
+  it('Verifica 3', () => {
+      expect(productDetails('Alcool gel', 'Máscara').length).toBe(2); // Teste se o array retornado pela função contém dois itens dentro.
+  });
+  it('Verifica 4', () => {
+      expect(typeof productDetails('Alcool gel', 'Máscara')).toBe('object'); // Teste se os dois itens dentro do array retornado pela função são objetos.
+  });
+  it('Verifica 5', () => {
+      expect(productDetails('Alcool gel', 'Máscara')[0]).not.toBe(productDetails('Alcool gel', 'Máscara')[1]); // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
+  });
+  it('Verifica 6', () => {
+      expect().toBe(); // Teste se os dois productIds terminam com 123.
   });
 });
+
